@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-cyan: #00E5FF;
+  --color-brand-dark: #0B1D3A;
+  --color-brand-deep: #102A43;
+  --color-brand-success: #22C55E;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-dark text-white font-sans antialiased min-h-screen;
+    background: radial-gradient(at top left, var(--color-brand-dark), var(--color-brand-deep));
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/10 border-white/20;
+  }
+
+  .neon-button {
+    @apply px-6 py-2 rounded-xl bg-brand-cyan text-brand-dark font-bold shadow-[0_0_15px_rgba(0,229,255,0.4)] hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .neon-input {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan/30 transition-all text-white placeholder:text-gray-500;
+  }
+}
